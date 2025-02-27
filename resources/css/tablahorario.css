@@ -1,0 +1,135 @@
+:root {
+    --DASP: rgb(40, 200, 200);
+    --PIMA:rgb(0, 223, 0);
+    --SASP:rgb(200, 160, 200);
+    --PAR: rgb(240, 240, 200);
+    --ISO: rgb(255, 255, 100);
+    --FH: rgb(255, 200, 200);
+    --INGLES: rgb(210, 210, 255);
+    --LMSG:rgb(255, 210, 50);
+    --IPE:rgb(0, 128, 255);
+    --GBD:rgb(210, 210, 110);
+    --fondofilatitulo:rgb(240, 240, 240);
+    --fondocabecerafila:beige;
+  }
+
+
+
+.tablahorario{
+    border: 2px solid grey ;
+    border-collapse: collapse;
+    text-align:center;
+    line-height: 1.2;
+    width:100%;
+}
+.tablahorario td,.tablahorario th{
+    border: 1px solid grey;
+}
+
+.tablahorario .DASP{
+    background-color:var(--DASP);
+}
+.tablahorario .PIMA{
+    background-color:var(--PIMA);
+}
+.tablahorario .SASP{
+    background-color:var(--SASP);
+}
+
+.tablahorario .PAR{
+    background-color:var(--PAR);
+}
+
+
+.tablahorario .GBD{
+    background-color:var(--GBD);
+}
+
+.tablahorario .LMSG{
+    background-color:var(--LMSG);
+}
+.tablahorario .INGLES{
+    background-color:var(--INGLES);
+}
+.tablahorario .ISO{
+    background-color: var(--ISO);
+}
+.tablahorario .IPE{
+    background-color: var(--IPE);
+}
+.tablahorario .FH{
+    background-color:var(--FH);
+}
+
+
+.tablahorario thead tr:nth-of-type(1){
+    font-size:2em;
+    color:rgb(0, 128, 128);
+    background-color: beige;
+}
+/* solucionar primera letra grupo salga de un tamaño mayor
+ * anidamos seudoelemento dentro de seudoclase
+ */
+
+ .tablahorario tr.titulocolumna{
+    background-color:var(--fondofilatitulo);
+}
+ .tablahorario thead tr:nth-of-type(2){
+   color:rgb(0, 128, 128);
+   font-size:1.25em;
+ }
+
+.tablahorario thead tr:nth-of-type(2) th::first-letter{
+    font-size:1.5em;
+}
+.tablahorario thead tr:nth-of-type(2) th:nth-of-type(1)::first-letter{
+    font-size:1em;
+}
+.tablahorario tbody tr:nth-of-type(4){
+    font-size:1.25em;
+    color:rgb(0, 128, 128);;
+}
+.tablahorario tbody tr:nth-of-type(4) th::first-letter{
+    font-size:1.5em;
+    color:rgb(0, 128, 128);
+}
+
+
+.tablahorario tbody th[scope="row"]{
+    background-color: var(--fondocabecerafila);
+}
+
+
+
+.corporativo{
+    color:hsl(0,100,50);
+    color:rgb(0,120,0);
+    color:#008000;
+    color:hsl(120, 100, 20);
+}
+/*
+th.capitalletter::first-letter{
+    font-size:1.5em;
+}*/
+
+
+article *:first-child {
+    font-weight: bold;
+  }
+  
+
+
+  .notebox {
+    border: 4px solid #666;
+    padding: .5em;
+  }
+  
+  .notebox.warning {
+    border-color: orange;
+    font-weight: bold;
+  }
+  
+  .notebox.danger {
+    border-color: red;
+    font-weight: bold;
+  }

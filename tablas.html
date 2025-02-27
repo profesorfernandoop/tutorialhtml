@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tablas</title>
+    <link rel="stylesheet" href="resources/css/estilo.css" />
+    <link rel="icon" href="resources/img/azarquiel.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="resources/css/stackoverflow-dark.min.css" />
+    <script src="resources/js/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </head>
+<body>
+  <div id="container">
+    <header></header>
+    <main>
+      <nav>
+        <ul>
+          <a href="index.html">
+            <li>Página principal</li>
+          </a>
+          <a href="parrafos.html">
+            <li>Parrafos</li>
+          </a>
+          <a href="enlaces.html">
+            <li>Enlaces</li>
+          </a>
+          <a href="tablas.html">
+            <li>Tablas</li>
+          </a>
+          <a href="formularios.html">
+            <li>Formularios</li>
+          </a>
+          <a href="multimedia.html">
+            <li>Multimedia</li>
+          </a>
+          <a href="formuHTML5.html">
+            <li>FormulHTML5</li>
+          </a>
+        </ul>
+      </nav>
+      <div id="content">
+        <div id="tablas">
+          <p>Para realizar una tabla html necesitamos las siguientes etiquetas:
+            <span class="etiqueta">table, thead, tbody, tfooter, tr, th, td</span>.
+          </p>
+          <hr>
+          <table border="1" style="width: 30%;">
+            <caption>ej 1,usando todas las etiquetas citadas</caption>
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Savings</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>january</td>
+                <td>100€</td>
+              </tr>
+              <tr>
+                <td>february</td>
+                <td>80€</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>sun</td>
+                <td>180€</td>
+              </tr>
+            </tfoot>
+          </table>
+          </hr>
+        </div>
+        <hr>
+        <table border="1" style="width: 30%;">
+          <caption>ej 1,usando todas las etiquetas citadas</caption>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Savings</th>
+              <th>trimestre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>january</td>
+              <td>100€</td>
+              <td rowspan="3" class="centrar">240</td>
+            </tr>
+            <tr>
+              <td>february</td>
+              <td>80€</td>
+            </tr>
+            <tr>
+              <td>sun</td>
+              <td>180€</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <th colspan="3">
+              Primer trimestre
+            </th>
+          </tfoot>
+        </table>
+        </hr>
+        <hr>
+        <table id="coloresalternos">
+          <caption>colores alternos filas pares inpares</caption>
+          <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+          </tr>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+          </tr>
+          <td>Ernst Handel</td>
+          <td>Roland Mendel</td>
+          <td>Austria</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>Helen Bennett</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Yoshi Tannamuri</td>
+            <td>Canada</td>
+          </tr>
+          <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Giovanni Rovelli</td>
+            <td>Italy</td>
+          </tr>
+        </table>
+        </hr>
+        <hr>
+        <table border="2px" id="thorario">
+          <thead>
+            <tr>
+              <th colspan="6">Este es mi horario de clases</th>
+            </tr>
+            <tr align="center">
+              <th class="dia">HORA</th>
+              <th class="dia">LUNES</th>
+              <th class="dia">MARTES</th>
+              <th class="dia">MIERCOLES</th>
+              <th class="dia">JUEVES</th>
+              <th class="dia">VIERNES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="horas">15:40 - 16:35</td>
+              <td rowspan="2" class="SISIN">SISIN</td>
+              <td class="IPE">IPE</td>
+              <td rowspan="2" class="SISIN">SISIN</td>
+              <td class="ENDE">ENDE</td>
+              <td class="PROG">PROG</td>
+            </tr>
+            <tr>
+              <td class="horas">16:35 - 17:30</td>
+              <td class="DASP">DASP</td>
+              <td class="PROG">PROG</td>
+              <td class="IPE">IPE</td>
+            </tr>
+            <tr>
+              <td class="horas">17:30 - 18:25</td>
+              <td class="BDD">BDD</td>
+              <td class="BDD">BDD</td>
+              <td class="BDD">BDD</td>
+              <td class="LMSG">LMSG</td>
+              <td class="DASP">DASP</td>
+            </tr>
+            <tr>
+              <td class="horas">18:25 - 18:55</td>
+              <td class="RECREO">RECREO</td>
+              <td class="RECREO">RECREO</td>
+              <td class="RECREO">RECREO</td>
+              <td class="RECREO">RECREO</td>
+              <td class="RECREO">RECREO</td>
+            </tr>
+            <tr>
+              <td class="horas">18:55 - 19:50</td>
+              <td class="BDD">BDD</td>
+              <td class="BDD">BDD</td>
+              <td class="ENDE">ENDE</td>
+              <td class="IPE">IPE</td>
+              <td class="SASP">SASP</td>
+            </tr>
+            <tr>
+              <td class="horas">19:50 - 20:45</td>
+              <td rowspan="2" class="LMSG">LMSG</td>
+              <td rowspan="2" class="PROG">PROG</td>
+              <td rowspan="2" class="PROG">PROG</td>
+              <td class="IPCG">IPCG</td>
+              <td class="IPCG">IPCG</td>
+
+            </tr>
+            <tr>
+              <td class="horas">20:45 - 21:40</td>
+              <td class="PIMD">PIMD</td>
+              <td  class="SISIN">SISIN</td>
+
+
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+      </div>
+      <div class="cb"></div>
+    </main>
+    <footer>
+      <h1 class="centrar">VS1DAW &copy Ismael García Arias, Enero 2025</h1>
+    </footer>
+  </div>
+</body>
+
+</html>

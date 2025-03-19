@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plantillaformflex</title>
+    <link rel="stylesheet" href="resources/css/estiloflex.css" />
+    <link rel="stylesheet" href="resources/css/estiloform.css" />
+    <link rel="icon" href="resources/img/azarquiel.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="resources/css/stackoverflow-dark.min.css" />
+    <script src="resources/js/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <header></header>
+      <main>
+        <nav>
+            <ul class="menu">
+                <li class="menuitem"><a href="index.html">Home</a></li>
+                <li class="menuitem"><a href="texto.html">Elementos de texto</a></li>
+                <li class="menuitem"><a href="enlaces.html">Hipervinculos</a></li>
+                <li class="menuitem"><a href="tablas.html">Tablas</a></li>
+                <li class="menuitem"><a href="multimedia.html">Multimedia</a></li>
+                <li class="menuitem"><a href="formularios.html">Formularios</a></li>
+                <li class="menuitem"><a href="formpago.html">Formulario de pago</a></li>
+                <li class="menuitem"><a href="formhtml5.html">Form html5</a></li>
+            </ul>
+      </nav>
+        <div class="content" id="content">
+          <h1 class="azulcobalto centrar">Formularios HTML</h1>
+          <h2 class="azulcobalto">¿Qué es un formulario web?</h2>
+          <p class="derecha">
+              <a href="#diseñoformulario" title="Ir a diseño">
+                  <img src="resources/img/arrowabajo.png" alt="Flecha ir diseño de un formulario">
+              </a>
+          </p>
+          <p>
+              Los <b>formularios web</b> son uno de los principales puntos de interacción entre un usuario y un sitio web o aplicación. Los formularios permiten a los usuarios la introducción de datos, que generalmente se envían a un servidor web para su procesamiento y almacenamiento (consulta Enviar los datos de un formulario más adelante en el módulo), o se usan en el lado del cliente para provocar de alguna manera una actualización inmediata de la interfaz (por ejemplo, se añade otro elemento a una lista, o se muestra u oculta una función de interfaz de usuario).
+          </p>
+          <p>
+              El HTML de un formulario web está compuesto por uno o más <b>controles de formulario</b> , además de algunos elementos adicionales que ayudan a estructurar el formulario general; a menudo se los conoce como <b>formularios HTML</b>. 
+          </p>
+          <p>
+              Los controles pueden ser campos de texto de una o varias líneas, cajas desplegables, botones, casillas de verificación o botones de opción, y se crean principalmente con el elemento <span class="etiqueta">&lt;input&gt;</span>, aunque hay algunos otros elementos que también hay que conocer.
+          </p>
+          <p>
+              Los controles de formulario también se pueden programar para forzar la introducción de formatos o valores específicos <b>(validación de formulario)</b>, y se combinan con etiquetas de texto que describen su propósito para los usuarios con y sin discapacidad visual.
+          </p>
+          <h2 id="diseñoformulario" class="azulcobalto">Diseñar un formulario</h2>
+          <p class="derecha">
+              <a href="#aplicarestilo" title="Ir a aplicar estilo">
+                  <img src="resources/img/arrowabajo.png" alt="Flecha ir aplicar estilo">
+              </a>
+          </p>
+          <p>
+              Antes de comenzar a escribir código, siempre es mejor dar un paso atrás y tomarte el tiempo necesario para pensar en tu formulario. Diseñar una maqueta rápida te ayudará a definir el conjunto de datos adecuado que deseas pedirle al usuario que introduzca.
+          </p>
+          <p>
+              <img src="resources/img/bocetoformulario.jpg" alt="boceto de formulario">
+          </p>
+          <p>
+              A partir de aquí hay que comentar que para dar estilo a los diferentes controles de nuestro formulario, tenemos que tener conocimientos en CSS. CSS será objeto de estudio en el próximo tema. Por ahora crearemos los formularios sin importarnos mucho el estilo con el que se mostrarán. 
+          </p>
+          <h2 class="azulcobalto">Implementación del formulario del boceto</h2>
+
+          <p>
+              Para implementar este primer formulario necesitaremos los siguientes elementos HTML: <span class="etiqueta">&lt;form&gt;&lt;label&gt;&lt;input&gt;&lt;textarea&gt;&lt;button&gt;</span>.
+          </p>
+          <h3 class="azulcobalto">El elemento &lt;form&gt; </h3>
+          <p>
+              Todos los formularios comienzan con un elemento&lt;form&gt;, como este:
+          </p>
+
+
+  <pre>
+      <code>
+        &lt;form action="/ruta-a-quien-gestiona-el-formulario" method="post"&gt;
+        &lt;/form&gt;
+      </code>
+  </pre>
+  <p>
+    El atributo <b>action</b> define la ubicación (URL) donde se envían los datos que el formulario ha recopilado cuando se validan. 
+    <ul>
+        <li> Puede ser una página de servidor que va a gestionar los datos introducidos en el formulario. También puede ser un elemento de programación capaz de atender peticiones HTTP, por ejemplo un servlet del lenguaje de programación JAVA.</li>
+        <li>
+            El atributo <b>method</b> define con qué método HTTP se envían los datos (generalmente <b>get</b> o <b>post</b>).
+        </li>
+    </ul>
+</p>
+<h3 class="azulcobalto">Los elementos &lt;label&gt;, &lt;input&gt; y &lt;textarea&gt; </h3>  
+<p>
+    Nuestro formulario de contacto no es complejo: la parte para la entrada de datos contiene tres campos de texto, cada uno con su elemento <span class="etiqueta">&lt;label&gt;</span> correspondiente que permite asignar una etiqueta a cada campo.
+    <ul>
+        <li>
+            El campo de entrada para el nombre es un campo de texto de una sola línea.
+        </li>
+        <li>
+            El campo de entrada para el correo electrónico es una entrada de datos de tipo correo electrónico: un campo de texto de una sola línea que acepta solo direcciones de correo electrónico.
+        </li>
+        <li>
+            El campo de entrada para el mensaje es <span class="etiqueta">&lt;textarea&gt;</span>un campo de texto multilínea.
+        </li>
+
+    </ul>
+    <p>
+        Escribamos todo el código:
+    </p>
+    <pre>
+      <code>
+&lt;form action="/ruta-a-quien-gestiona-el-formulario" method="post"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;label for="name">Nombre:&lt;/label&gt;
+      &lt;input type="text" id="name" name="user_name"&gt;
+      &lt;/li&gt;
+    &lt;li&gt;
+      &lt;label for="mail">Correo electrónico:&lt;/label&gt;
+      &lt;input type="email" id="mail" name="user_mail"&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;label for="msg">Mensaje:&lt;/label&gt;
+      &lt;textarea id="msg" name="user_message">&lt;/textarea&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/form&gt;
+      </code>
+  </pre>
+        <form action="/ruta-a-quien-gestiona-el-formulario" method="post">
+            <ul class="formulario">
+                <li>
+                <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="user_name">
+                </li>
+                <li>
+                    <label for="mail">Correo electrónico:</label>
+                    <input type="email" id="mail" name="user_mail">
+                </li>
+                <li>
+                    <label for="msg">Mensaje:</label>
+                    <textarea id="msg" name="user_message"></textarea>
+                </li>
+            </ul>
+        </form>
+        <p>
+          Por ahora el aspecto visual no es bueno, las listas que nos han ayudado a que los controles salgan en diferentes lineas, muestran el estilo por defecto del navegador, lo que hace que se muestre un "punto" que no tiene ningún sentido. Pero de eso nos ocuparemos cuando estudiemos CSS. Por ahora nos centramos en el estudio de los diferentes controles que podemos incorporar a un formulario.
+        </p>
+        <p>
+            Cada control de un formulario contiene un atributo "<b>name</b>". Ese atributo es muy importante porque ese es el nombre que usará la URL que procese el formulario para acceder al valor que el usuario del formulario haya escrito en él. Observarás también que cada control tiene un atributo "<b>id</b>". El atributo id identifica de forma única cada elemento que colocamos en una página. Mediante código Javascript se puede acceder a los elementos de una página a través del identificador.<br/>
+            El atributo "<b>for</b>" conecta la etiqueta <span class="etiqueta">&lt;label&gt;</span> con el elemento de control para el que esa etiqueta se muestra. <br/>
+            Observa que la conexión se hace mediante especificando en el atributo for, el identificador del control.
+            <pre>
+            <code>
+  &lt;label for="name">Nombre:&lt;/label&gt;
+            </code>
+            </pre>
+
+        </p>
+        <p>
+            En el elemento <span class="etiqueta">&lt;input&gt;</span>, el atributo más importante es <b>type</b>. Define la forma en que el elemento  <span class="etiqueta">&lt;input&gt;</span> aparece y se comporta. <br/>
+            En nuestro ejemplo sencillo, usamos el valor <span class="etiqueta">&lt;input/text&gt;</span>para la primera entrada, el valor predeterminado para este atributo. Representa un campo de texto básico de una sola línea que acepta cualquier tipo de entrada de texto.<br/>
+            Para la segunda entrada, usamos el valor <span class="etiqueta">&lt;input/email&gt;</span>, que define un campo de texto de una sola línea que solo acepta una dirección de correo electrónico. Esto convierte un campo de texto básico en una especie de campo «inteligente» que efectúa algunas comprobaciones de validación de los datos que el usuario escribe. También hace que aparezca un diseño de teclado más apropiado para introducir direcciones de correo electrónico (por ejemplo, con un símbolo @ por defecto) en dispositivos con teclados dinámicos, como teléfonos inteligentes. 
+        </p>
+        <p>
+            Por último, pero no por ello menos importante, ten en cuenta la sintaxis de <span class="etiqueta">&lt;input&gt;</span> en contraposición con la de <span class="etiqueta">&lt;textarea&gt;</span><span class="etiqueta">&lt;/textarea&gt;</span>. Esta es una de las rarezas del HTML. La etiqueta <span class="etiqueta">&lt;input&gt;</span> es un elemento vacío, lo que significa que no necesita una etiqueta de cierre. El elemento  <span class="etiqueta">&lt;textarea&gt;</span> no es un elemento vacío, lo que significa que debe cerrarse con la etiqueta de cierre adecuada. Esto tiene un impacto en una característica específica de los formularios: el modo en que defines el valor predeterminado. Para definir el valor predeterminado de un elemento<span class="etiqueta">&lt;input&gt;</span>, debes usar el atributo <b>value</b> de esta manera:
+        </p>
+            <pre>
+                <code>
+    &lt;input type="text" 
+            value="por defecto este elemento se llena con este texto"&gt;
+                </code>
+            </pre>
+          <p>
+            Por otro lado, si deseas definir un valor predeterminado para un elemento </span> en contraposición con la de <span class="etiqueta">&lt;textarea&gt;</span>, lo colocas entre las etiquetas de apertura y cierre del elemento </span> en contraposición con la de <span class="etiqueta">&lt;textarea&gt;</span>, así: 
+          </p>
+            <pre>
+                <code>
+  &lt;textarea&gt;
+    Por defecto, este elemento contiene este texto
+  &lt;/textarea&gt;
+                </code>
+            </pre>                   
+            <h3 class="azulcobalto">El elemento button</h3>
+            <p>
+              El marcado de nuestro formulario está casi completo; solo necesitamos añadir un botón para permitir que el usuario envíe sus datos una vez que haya completado el formulario. Esto se hace con el elemento <span class="etiqueta">&lt;button&gt;</span>; añade lo siguiente justo encima de la etiqueta de cierre <span class="etiqueta">&lt;/ul&gt;</span>:
+            </p>
+            <pre>
+              <code>
+&lt;li class="button"&gt;
+    &lt;button type="submit">Envíe su mensaje &lt;/button&gt;
+&lt;/li&gt;
+              </code>
+          </pre>
+
+          <form action="/ruta-a-quien-gestiona-el-formulario" method="post">
+            <ul class="formulario">
+                <li>
+                 <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="user_name">
+                </li>
+                <li>
+                    <label for="mail">Correo electrónico:</label>
+                    <input type="email" id="mail" name="user_mail">
+                </li>
+                <li>
+                    <label for="msg">Mensaje:</label>
+                    <textarea id="msg" name="user_message"></textarea>
+                </li>
+                <li class="button">
+                    <button type="submit">Envíe su mensaje </button>
+                    </li>
+            </ul>
+        </form>
+        <p>
+          El elemento <span class="etiqueta">&lt;button&gt;</span> también acepta un atributo de <b>type</b>, que a su vez acepta uno de estos tres valores: submit, reset o button.
+          <ul>
+              <li>
+                  Un clic en un botón submit (el valor predeterminado) envía los datos del formulario a la página web definida por el atributo action del elemento <span class="etiqueta">&lt;form&gt;</span>.
+              </li>
+              <li>
+                  Un clic en un botón reset restablece de inmediato todos los controles de formulario a su valor predeterminado. Desde el punto de vista de UX, esto se considera una mala práctica, por lo que debes evitar usar este tipo de botones a menos que realmente tengas una buena razón para incluirlos.
+              </li>
+              <li>
+                  Un clic en un botón button no hace... ¡nada! Eso suena tonto, pero es muy útil para crear botones personalizados: puedes definir su función con JavaScript.
+              </li>
+          </ul>
+      </p>
+      <h2 id="aplicarestilo" class="azulcobalto">Aplicar estilo básico a un formulario</h2>
+      <p class="derecha">
+          <a href="#seccestructurarformulario" title="Ir a estructurar formulario">
+              <img src="resources/img/arrowabajo.png" alt="Flecha ir  estructurar formulario">
+          </a>
+      </p>
+      Aunque hemos comentado que pospondremos el dar estilo a un formulario hasta que estudiemos CSS, podemos hacer una prueba con un poco de código CSS prestado por parte de MDN.<br/>
+      Para ello crea una nueva hoja de estilos "estiloform.css" e introduce en ella las siguientes reglas CSS. <br/>
+      <pre>
+          <code>
+      form {
+          /* Centrar el formulario en la página */
+            margin: 0 auto;
+            width: 400px;
+          /* Esquema del formulario */
+            padding: 1em;
+            border: 1px solid #CCC;
+            border-radius: 1em;
+          }
+          
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          
+          form li + li {
+            margin-top: 1em;
+          }
+          
+          label {
+          /* Tamaño y alineación uniforme */
+            display: inline-block;
+            width: 90px;
+            text-align: right;
+          }
+          
+          input,
+          textarea {
+          /* Para asegurarse de que todos los campos de texto tienen la misma 
+              configuración de letra. Por defecto, las áreas de texto tienen 
+              un tipo de letra monoespaciada
+          */
+          font: 1em sans-serif;
+          
+          /* Tamaño uniforme del campo de texto */
+          width: 300px;
+          box-sizing: border-box;
+          
+          /* Hacer coincidir los bordes del campo del formulario */
+          border: 1px solid #999;
+          }
+          
+          input:focus,
+          textarea:focus {
+          /* Destacado adicional para elementos que tienen el cursor */
+          border-color: #000;
+          }
+          
+          textarea {
+          /* Alinear los campos de texto multilínea con sus etiquetas */
+          vertical-align: top;
+          
+          /* Proporcionar espacio para escribir texto */
+          height: 5em;
+          }
+          
+          .button {
+          /* Alinear los botones con los campos de texto */
+          padding-left: 90px; /* mismo tamaño que los elementos de la etiqueta */
+          }
+          
+          button {
+          /* Este margen adicional representa aproximadamente el mismo espacio 
+              que el espacio entre las etiquetas y sus campos de texto */
+              margin-left: .5em;
+          }
+          </code>
+      </pre>
+        <p>
+          No te preocupes si ahora no las entiendes, ya las estudiaremos en el capítulo dedicado a CSS.<br/>
+          Enlaza a continuación la hoja de estilos recien creada, y observa como se muestra ahora el formulario. Deberias verlo así: <br/>
+          <img src="resources/img/formestilo.png">
+        </p>
+        <h2 id="seccestructurarformulario" class="azulcobalto">Cómo estructurar un formulario HTML</h2>
+        <p class="derecha">
+            <a href="#controlesformulario" title="Ir a estructurar formulario">
+                <img src="resources/img/arrowabajo.png" alt="Flecha ir  estructurar formulario">
+            </a>
+        </p>
+        <p>
+            El uso de una estructura correcta al crear un formulario HTML te ayudará a garantizar que el formulario presente las características de usabilidad y accesibilidad adecuadas. <br/>
+            Un formulario, como vimos en el apartado anterior, comienza con la etiqueta <span class="etiqueta">&lt;form&gt;</span>. El resto de controles deben ir anidados dentro de esta etiqueta.
+        </p>
+        <h3 class="azulcobalto">Los elementos &lt;fieldset&gt; y &lt;legend&gt;</h3>
+        <p>
+    
+          El elemento <span class="etiqueta">&lt;fieldset&gt;</span> es una forma cómoda de crear grupos de controles de formulario que comparten el mismo propósito, con fines semánticos y de aplicación de estilo. Puedes etiquetar un elemento <span class="etiqueta">&lt;fieldset&gt;</span> incluyendo un elemento <span class="etiqueta">&lt;legend&gt;</span> justo debajo de la etiqueta de apertura <span class="etiqueta">&lt;fieldset&gt;</span>. El contenido textual del elemento <span class="etiqueta">&lt;legend&gt;</span> describe formalmente el propósito del elemento  <span class="etiqueta">&lt;fieldset&gt;</span> en el que se incluye.<br/>
+        </p>
+        Ejemplo:
+        <pre>
+            <code>
+    &lt;form&gt;
+        &lt;fieldset&gt;
+            &lt;legend>Tamaño del zumo de fruta &lt;/legend&gt;
+            &lt;p&gt;
+                &lt;label for="size_1"&gt;Pequeño &lt;/label&gt;
+                &lt;input type="radio" name="size" id="size_1" value="pequeño"&gt;
+
+            &lt;/p&gt;
+            &lt;p&gt;
+                &lt;label for="size_2">Mediano &lt;/label&gt;
+                &lt;input type="radio" name="size" id="size_2" value="mediano"&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+                &lt;label for="size_3">Grande &lt;/label&gt;
+                &lt;input type="radio" name="size" id="size_3" value="grande"&gt;
+            &lt;/p&gt;
+        &lt;/fieldset&gt;
+    &lt;/form&gt;
+            </code>
+        </pre>
+          <form>
+            <fieldset>
+                <legend>Tamaño del zumo de fruta </legend>
+                <p>
+                    <label for="size_1">Pequeño </label>
+                    <input type="radio" name="size" id="size_1" value="pequeño"> 
+                </p>
+                <p>
+                    <label  for="size_2">Mediano </label>
+                    <input type="radio" name="size" id="size_2" value="mediano">
+                
+                </p>
+                <p>
+                    <label for="size_3">Grande </label>
+                    <input type="radio" name="size" id="size_3" value="grande">
+                    
+                </p>
+            </fieldset>
+        </form>
+         <h3 class="azulcobalto">El elemento &lt;label&gt;</h3>
+        <p>
+            Como vimos en el artículo anterior, el elemento  <span class="etiqueta">&lt;label&gt;</span> es la forma forma de definir una etiqueta para un control de un formulario HTML. Este es el elemento más importante si deseas crear formularios accesibles porque cuando se implementan correctamente, los lectores de pantalla leen la etiqueta de un elemento de formulario junto con las instrucciones relacionadas, y esto además resulta muy útil para los usuarios videntes. Tomemos este ejemplo que vimos en el apartado anterior:
+            <pre>
+                <code>
+            &lt;label for="name">Nombre:&lt;/label&gt;
+            &lt;input type="text" id="name" name="user_name"&gt;
+                </code>
+            </pre>
+            Un lector de pantalla leerá algo como «Nombre, editar texto». <br/>
+            Otra ventaja de configurar correctamente las etiquetas es que puedes hacer clic o pulsar en la etiqueta para activar el control de formulario correspondiente. Puedes probar esta funcionalidad con el formulario anterior. Pulsa en las etiquetas y verás como se marca el botón de radio correspondiente.
+        </p>
+
+        <h3 class="azulcobalto">Estructuras HTML comunes que se utilizan en los formularios</h3>
+        <p>
+            Puedes usar todo el poder del HTML para estructurar un formulario web.
+        </p>
+        <p>
+            Como has visto en los ejemplos anteriores, es una práctica común delimitar una etiqueta y su control de formulario con un elemento <span class="etiqueta">&lt;li&gt;</span> dentro de una lista <span class="etiqueta">&lt;ul&gt;</span> o<span class="etiqueta">&lt;ol&gt;</span>. Los elementos <span class="etiqueta">&lt;p&gt;</span> y <span class="etiqueta">&lt;div&gt;</span> también se usan con frecuencia. Se recomiendan las listas para estructurar múltiples casillas de verificación o botones de opción.
+        </p>
+        <p>
+            Además del elemento <span class="etiqueta">&lt;fieldset&gt;</span>, también es una práctica común usar títulos HTML (por ejemplo, <span class="etiqueta">&lt;h1&gt;</span>, <span class="etiqueta">&lt;h2&gt;</span>), y seccionar (por ejemplo,<span class="etiqueta">&lt;section&gt;</span>,), para estructurar formas complejas.<br/>
+    
+            Depende de ti, sobre todo, encontrar un estilo de codificación cómodo que dé como resultado formularios con buena accesibilidad y usabilidad. Las secciones independientes con funciones diferentes deben estar contenidas en elementos <span class="etiqueta">&lt;section&gt;</span>separados, con elementos <span class="etiqueta">&lt;fieldset&gt;</span> para contener botones de opción.
+        </p>
+        <h3 class="azulcobalto">Práctica: Construir una estructura de formulario</h3>
+        <p>
+            Como ejercicio vamos a enlazar en esta página el formulario de pago que propone MDN es su tutorial.<br/>
+            Este formulario contendrá una serie de elementos de control que quizás aún no comprendas. No te preocupes por esto por ahora; en el apartado siguiente descubrirás cómo funcionan los controles básicos de un formulario.<br/>
+            Por ahora, lee con detenimiento las descripciones y sigue las instrucciones, y empieza a formarte una idea de qué elementos de delimitación se utilizan para estructurar el formulario y por qué. 
+        </p>
+        <p>
+            Para comenzar, <a class="enlaceexterno" href="https://github.com/mdn/learning-area/blob/master/html/forms/html-form-structure/payment-form.css">descarga el archivo CSS del formulario</a> que permitirá que el formulario se muestre con un cierto diseño del repositorio de github.<br/>
+            Guarda la hoja de estilos recién descargada en la carpeta css.
+        <br/>
+            A continuación crea una página nueva y enlálaza con la hoja de estilos que has descargado en el paso anterior.<br/>
+            Sigue las instrucciones del tutorial de MDN y construye el formulario. Una vez creado crea un hipervínculo para enlazarlo.<br/>
+            <a class="enlaceexterno" href="formpago.html">Pulsa para ver el resultado</a>
+        </p>
+        <h2 id="controlesformulario" class="azulcobalto">Controles de formulario originales</h2> 
+        <p>
+            En esta sección en particular, veremos el conjunto original de controles de formulario, disponible en todos los navegadores desde los primeros días de la web.
+            <br/>
+            Algunos de ellos ya los hemos usado en la práctica anterior.
+        </p>   
+        <h3 class="azulcobalto">Campos de entrada de texto</h3>
+        <p>
+            Los campos de texto  <span class="etiqueta">&lt;input&gt;</span> son los controles de formulario más básicos. Son un modo muy cómodo de permitir al usuario introducir cualquier tipo de datos, y ya hemos visto algunos ejemplos sencillos.
+        </p>
+        <p>
+            Todos los controles de texto básicos comparten algunos comportamientos comunes:
+            <ul >
+                <li>Se pueden marcar como <b>readonly</b> (el usuario no puede modificar el valor de entrada, pero este se envía con el resto de los datos del formulario) o <b>disabled</b> (el valor de entrada no se puede modificar y nunca se envía con el resto de los datos del formulario).</li>
+                <li>
+                    Pueden tener un <b>placeholder</b>; se trata de un texto que aparece dentro de la caja de entrada de texto y que se usa para describir brevemente el propósito de la caja de texto.
+                </li>
+                <li>
+                    Pueden presentar una limitación de tamaño (el tamaño físico de la caja de texto, atributo <b>size</b>) y de la extensión máxima (el número máximo de caracteres que se pueden poner en la caja de texto, atributo <b>maxlength</b>).
+                </li>
+                <li>
+                    Admiten corrección ortográfica (utilizando el atributo <b>spellcheck</b> si el navegador la admite.
+                </li>
+            </ul>
+            Un ejemplo básico de uso:
+            <pre>
+                <code>
+        &lt;input type="text" id="comentario" 
+                name="comentario" value="Campo de texto, valor por defecto"&gt;
+    
+                </code>
+            </pre>
+        </p>
+        <h3 class="azulcobalto">Campo de contraseña</h3>
+        <p>
+            Usado para recibir las contraseñas de un usuario. Oculta el valor que se introduce en el campo (por ejemplo, con puntos o asteriscos) para impedir que otros puedan leerlo.<br/>
+            Ejemplo de uso:
+    
+        </p>
+        <pre>
+            <code>
+        &lt;input type="password" id="pwd" name="pwd"&gt;
+            </code>
+        </pre>
+        <p>
+            Ten en cuenta que esto es solo una función de interfaz de usuario; a menos que envíes tu formulario en modo seguro, se enviará como texto plano, lo que es malo desde el punto de vista de la seguridad porque alguien con malas intenciones podría interceptar tus datos y robar tus contraseñas, datos de tarjetas de crédito o cualquier otra cosa que hayas enviado. La mejor manera de proteger a los usuarios de esto es alojar cualquier página que contenga formularios en una ubicación de conexión segura (es decir, en una dirección https://), de modo que los datos se cifren antes de enviarse.
+        </p>
+        <h3 class="azulcobalto">Contenido oculto</h3>
+        <p>
+            Otro control de texto original es el tipo de entrada hidden. Se usa para crear un control de formulario que es invisible para el usuario, pero que aun así se envía al servidor junto con el resto de los datos del formulario una vez se transmiten; por ejemplo, es muy normal en la programación de aplicciones web, usar campos ocultos para pasar la operación a realizar con los datos del formulario que se envía. Al estar oculto, el usuario no puede ver ni editar su valor intencionadamente, el control nunca recibirá el foco y un lector de pantalla tampoco lo detectará.<br/>
+            Ejemplo de uso:
+    
+        </p>  
+        <pre>
+            <code>
+        &lt;input type="hidden" id="operacion" 
+             name="operacion" value="registrarnuevosocio"&gt;
+            </code>
+        </pre>  
+        <h3 class="azulcobalto">Elementos de selección: casillas de verificación y botones de opción</h3> 
+        <p>
+            Los elementos de selección (o checkable items, en inglés) son controles cuyo estado puede cambiar cuando se hace clic en ellos o en sus etiquetas asociadas. Hay dos tipos de elementos de selección: las <b>casillas de verificación (o check boxes)</b> y los <b>botones de opción (o radio buttons)</b>. Ambos usan el atributo <b>checked</b> para indicar si el control de formulario está seleccionado por defecto o no.<br>
+        </p>
+        <p>
+            Vale la pena señalar que estos controles no se comportan exactamente como otros controles de formulario. Para la mayoría de los controles de formulario, cuando se envía el formulario, se envían todos los controles que tienen un atributo name, incluso si en ellos no se ha introducido ningún valor. <b>En el caso de elementos de selección, sus valores se envían solo si están seleccionados</b>. Si no están seleccionados, no se envía nada, ni siquiera su nombre. Si están seleccionados pero no tienen ningún valor asignado, el nombre se envía con el valor on.
+        </p>
+        <p>
+            Para una usabilidad/accesibilidad óptima, te recomendamos delimitar cada lista de elementos que estén relacionados entre sí dentro de un elemento<span class="etiqueta">&lt;fieldset&gt;</span> con un elemento <span class="etiqueta">&lt;legend&gt;</span> que proporcione una descripción general de la lista. Cada par individual de elementos <span class="etiqueta">&lt;label/input&gt;</span> ha de estar contenido en un elemento de lista propio (o similar). El elemento <span class="etiqueta">&lt;label&gt;</span> asociado se coloca en general inmediatamente después del botón de opción o la casilla de verificación, con las instrucciones para el grupo de botones de opción o casillas de verificación, que suelen ser el contenido del elemento <span class="etiqueta">&lt;legend&gt;</span>. Observa las estructuras de ejemplo en los ejemplos asociados anteriores.
+        </p>
+        <p>
+            Puedes consultar un ejemplo de confección de una página que contiene un grupo de casillas de verificación y un grupo de botones de radio. El código lo tienes disponible <a class= "enlaceexterno" href="https://github.com/mdn/learning-area/blob/master/html/forms/native-form-widgets/checkable-items.html" target="_blank">aqui</a> o <a class="enlaceexterno" href="https://mdn.github.io/learning-area/html/forms/native-form-widgets/checkable-items.html" target="_blank">lo puedes ver en vivo </a> 
+        </p>
+        <h3 class="azulcobalto">Casillas de verificación</h3>
+        <p>
+            Las casillas de verificación se crean estableciendo el atributo type del elemento <span class="etiqueta">&lt;input&gt;</span> en el valor <b>checkbox</b>.
+        </p>
+            <pre>
+                <code>
+        &lt;input type="checkbox" 
+                  id="zanahoria" 
+                  name="vegetales" 
+                  value="zanahoria" checked&gt;
+                </code>
+            </pre>
+        <p>
+            Al incluir el atributo checked, la casilla de verificación se marca automáticamente cuando se carga la página. Al hacer clic en la casilla de verificación o en su etiqueta asociada, la casilla de verificación se activa o desactiva.        
+    
+        </p>
+        <p>
+            Las casillas de verificación normalmente se usan como elementos de selección múltiple, de forma que el usuario puede marcar varias de las opciones que se le presentan. En ese caso, cada casilla se crea con el mismo atributo "name" y diferentes valor para los atributos "id" y "value". 
+        </p>
+            <pre>
+                <code>
+        &lt;input type="checkbox" 
+                  id="zanahoria" 
+                  name="vegetales" 
+                  value="zanahoria" checked&gt;
+        &lt;input type="checkbox" 
+                  id="coliflor"
+                   name="vegetales" 
+                   value="coliflor" checked&gt;
+                </code>
+            </pre>
+        <p>
+        El elemento que procesa el formulario, accede a los vegetales que han sido marcados, leyendo solamente el nombre que comparten todos ellos "vegetales". <br/>
+        Procesando el formulario desde un servlet de Java escribiríamos lo siguiente para acceder al valor de los vegetales que marcó un usuario:
+        </p>
+        <pre>
+            <code>
+        String []vegetalesmarcados=request.getParameter("vegetales");
+            </code>
+        </pre>
+        <p>
+        Y en vegetalesmarcados se almacenarían los valores de todos los vegetales que marcara un usuario. Para el ejemplo, vegetalesmarcados contendría los valores: {"zanahoria","coliflor"}<br/>
+        Recuerda que solo se envía el que esté marcado.
+        </p>
+        <h3 class="azulcobalto">Botones de radio</h3>   
+        <p>
+            Un botón de opción se crea estableciendo el atributo type del elemento <span class="etiqueta">&lt;input&gt;</span> en el valor <b>radio</b>:
+        </p> 
+        <pre>
+            <code>
+    &lt;input type="radio" id="sopa" name="comida" value="sopa" checked&gt;
+            </code>
+        </pre>
+        <p>
+            Es posible asociar diversos botones de opción. Si comparten el mismo valor de atributo name, se considera que están en el mismo grupo de botones. Solo un botón dentro de un grupo puede estar activado en cada momento.
+        </p>
+            <pre>
+                        <code>
+    &lt;input type="radio" id="sopa" name="comida" value="sopa" checked&gt;
+    &lt;input type="radio" id="paella" name="comida" value="paella"&gt;
+    &lt;input type="radio" id="fabada" name="comida" value="fabada"&gt;
+                        </code>
+            </pre>
+        <p>
+        El codigo anterior muestra tres botones de radio que pertenecen al mismo grupo, porque todos tienen el mismo atributo "name". <br/>
+        Como ves, solo uno de ellos puede tener el valor checked. Si lo escribieras en más de uno, solo aparecería marcado el último de ellos. <br>
+        Cuando se envía el formulario que contiene ese grupo de botones, solo se envía el valor del botón seleccionado. 
+        De nuevo, si procesamos el formulario desde un servlet de Java escribiríamos lo siguiente para acceder al valor la comida seleccionada
+        </p>
+        <pre>
+            <code>
+        String comidafavorita=request.getParameter("comida");
+            </code>
+        </pre>
+        <p>
+        Y en la variable comidafavorita se guardaría el valor del atributo "value" del botón que seleccione el usuario. Si el usuario hubiese marcado el botón con el valor "paella", la variable comidafavorita guardaría el valor paella.
+        </p>
+        <h3 class="azulcobalto">Listas de selección (desplegables)</h3>
+        <p>
+            Estos controles permiten que un usuario seleccione de entre varias opciones que se le presentan mediante un control que ocupa poco espacion en pantalla.
+        </p>
+        <h4 class="azulcobalto">Listas de selección simple</h4>
+        <p>
+           Podemos crear una lista de selección simple mediante el elemento <span class="etiqueta">&lt;select&gt;</span> junto con uno o más elementos <span class="etiqueta">&lt;option&gt;</span> como elementos anidados. Estos elementos representan los posibles valores a seleccionar.<br/>
+           Ejemplo:
+        </p>
+        <pre>
+            <code>
+    &lt;select id="simple" name="simple"&gt;
+     &lt;option>Banana &lt;/option&gt;
+     &lt;option selected>Cherry &lt;/option&gt;
+     &lt;option>Lemon &lt;/option&gt;
+    &lt;/select&gt;
+               
+            </code>
+        </pre>
+        <p>
+            Visualmente se vería así:
+        </p>
+        <select id="simple" name="simple">
+            <option>Banana </option>
+            <option selected>Cherry </option>
+            <option>Lemon </option>
+        </select>
+        <p>
+            El elemento Cherry es el que aparece seleccionado por defecto porque tiene asociado el atributo selected.
+        </p>    
+        <h4 class="azulcobalto">Uso del atributo value</h4>
+        <p>
+            Si un elemento <span class="etiqueta">&lt;option&gt;</span> tiene el atributo <b>value</b> establecido en él, ese valor es el que se enviará cuando el formulario sea eviado. Si este atributo se omite, el mismo contenido del elemento <span class="etiqueta">&lt;option&gt;</span>
+        </p>
+        <h4 class="azulcobalto">Listas de selección múltiple</h4>
+        <p>
+            Por defecto, un lista de selección solo permite seleccionar un valor. Si añadimos el atributo multiple al elemento  <span class="etiqueta">&lt;select&gt;</span>, permitiremos que los usuarios puedan seleccionar varios valores mediante el mecanismo que proporciona el sistema operativo. La forma habitual es marcar varios con la tecla ctrl- y haciendo click en los valores que queramos seleccionar.<br/>
+            La mísma lista anterior la podemos codificar como lista múltiple asi:
+
+        </p>
+        <pre>
+            <code>
+&lt;select id="multiple" name="multiple" multiple size="2"&gt;
+  &lt;option&gt;Banana &lt;/option&gt;
+  &lt;option&gt;Cherry &lt;/option&gt;
+  &lt;option&gt;Lemon &lt;/option&gt;
+&lt;/select&gt;
+                       
+            </code>
+        </pre>
+    <p>
+        Se mostraría así:
+        <select id="multiple" name="multiple" multiple size="2">
+            <option>Banana </option>
+            <option>Cherry </option>
+            <option>Lemon </option>
+        </select>        
+    </p>
+    <h4 class="azulcobalto">Listas de autocompletado</h4>
+    <p>
+        Orientadas a automatizar los valores que podemos introducir en un campo de texto. Para ello usamos el control <span class="etiqueta">&lt;datalist&gt;</span><br>
+        La forma básica de uso de datalist requiere el atributo ID y elementos option contenidos en datalist (se construye de forma similar al elemento select). El HTML básico sería:
+    </p>
+    <pre>
+        <code class="language-html">
+&lt;datalist id="colores"&gt;
+    &lt;option value="Azul"> &lt;/option&gt;
+    &lt;option value="Amarillo"> &lt;/option&gt;
+    &lt;option value="Burdeos"> &lt;/option&gt;
+    &lt;option value="Caoba"> &lt;/option&gt;
+    &lt;option value="Marrón"> &lt;/option&gt;
+    &lt;option value="Naranja"> &lt;/option&gt;
+    &lt;option value="Verde"> &lt;/option&gt;
+&lt;/datalist&gt;
+        </code>
+    </pre>
+    <p>
+        El siguiente paso es asociar el datalist con un input. Esto se consigue estableciendo el atributo LIST en el input deseado con el mismo valor que ID del datalist:
+    </p>
+    <pre>
+        <code class="language-html">
+&lt;input list="colores" name="colores" type="text"&gt;
+        </code>
+    </pre>
+    <p>
+        Si creas un formulario con los dos controles, tendría este aspecto:
+    </p>
+    <form>
+        <datalist id="colores">
+            <option value="Azul"> </option>
+            <option value="Amarillo"> </option>
+            <option value="Burdeos"> </option>
+            <option value="Caoba"> </option>
+            <option value="Marrón"> </option>
+            <option value="Naranja"> </option>
+            <option value="Verde"> </option>
+        </datalist> 
+        <label for="colorpreferido">Color</label>
+        <input list="colores" id="colorpreferido" name="colores" type="text">
+    </form>
+    <h3 class="azulcobalto">Botones</h3>
+    <p>
+        Hay tres tipos del elemento <span class="etiqueta">input</span> que producen botones:
+    </p>
+    <ul>
+        <li>
+            <b>submit</b>: Produce el envío de los datos del formulario.  Para los elementos <span class="etiqueta">&lt;button&gt;</span>, omitir el atributo type (o introducir un valor de tipo no válido) da como resultado un botón de envío (submit).
+        </li><br/>
+        <li>
+            <b>reset</b>: Establece todos los controles del formulario a sus valores por defecto.
+        </li><br/>
+        <li>
+            <b>button</b>: No tiene funcionalidad automática definida. La acción a llevar a cabo se codifica mediante el lenguaje Javascript.
+        </li>
+    </ul>
+    <h4 class="azulcobalto">Submit</h4>
+    <pre>
+        <code class="language-html">
+&lt;button type="submit"&gt;boton submit &lt;/button&gt;
+&lt;input type="submit" value="boton submit"&gt;
+        </code>
+    </pre>
+<h4 class="azulcobalto">Reset</h4>
+    <pre>
+        <code class="language-html">
+&lt;button type="reset"&gt;boton reset
+&lt;/button&gt;
+
+&lt;input type="reset" value="botón reset"&gt;
+            
+        </code>
+    </pre>
+<h4 class="azulcobalto">Botón programable</h4>
+    <pre>
+        <code>
+&lt;button type="button"&gt;boton programable
+&lt;/button&gt;
+
+&lt;input type="button" value="boton programable"&gt;
+            
+        </code>
+    </pre>    
+<h3 class="azulcobalto">Boton de imagen</h3>
+<p>
+    El control botón de imagen se muestra exactamente como un elemento <span class="etiqueta">&lt;img&gt;</span>, excepto que cuando el usuario hace clic en él, se comporta como un botón de envío.
+</p>
+    <pre>
+        <code class="language-html">
+&lt;input type="image" 
+       alt="¡Púlsame!" src="resources/img/botones/enviar.png" width="300"&gt;
+        </code>
+    </pre>
+  <form action="">
+    <input type="image" alt="¡Púlsame!" 
+           src="resources/img/botones/enviar.png" width="300">
+  </form>
+  <h2 class="azulcobalto">Selector de archivos</h2>
+<p>
+    El envío de archivos mediante un formulario es un caso especial.<br/>
+    Si queremos enviar archivos desde un formulario necesitamos realizar los siguientes pasos:
+    <ul>
+        <li>
+            Establecer el valor del atributo <b>method</b> a POST porque el contenido del archivo no se puede poner dentro de los parámetros de URL.
+        </li>
+        <li>
+            Establecer el valor del atributo <b>enctype</b> en multipart/form-data debido a que los datos se dividen en múltiples partes, una para cada archivo más uno para los datos de texto incluidos en el cuerpo del formulario (si también se introduce el texto en la formulario).
+        </li>
+        <li>
+            Incluir uno o más controles de selección de archivos para permitir a los usuarios seleccionar el archivo (s) que será subido.
+        </li>
+    </ul>
+    <h3 class="azulcobalto">Control &lt;input type="file"&gt;</h3>
+    <p>
+
+    Es el control del formulario que permitirá al usuario seleccionar uno o varios archivos para subir al servidor.<br/>
+    Es posible restringir los tipos de archivos que se aceptan utilizando el atributo accept. Además, puedes permitir que el usuario elija más de un archivo añadiendo el atributo multiple.
+  </p>
+    <pre>
+        <code class="language-html">
+    &lt;input type="file" name="file" id="file" accept="image/*" multiple&gt;           
+        </code>
+    </pre>
+    <p>
+    El código del formulario completo que permita el envío de archivos quedaría así:
+  </p>
+    <pre>
+        <code>
+&lt;form method="post" action="https://www.foo.com" enctype="multipart/form-data"&gt;
+    &lt;div&gt;
+        &lt;label for="file"&gt;Seleccione un archivo&lt;/label&gt;
+        &lt;input type="file" id="file" name="fichero"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;button&gt;Subir archivo&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;            
+        </code>
+    </pre>
+Y se vería así:<br>
+<form method="post" action="https://www.foo.com" enctype="multipart/form-data">
+    <div>
+        <label for="file">Seleccione un archivo</label>
+        <input type="file" id="file" name="fichero" accept="img/*" multiple>
+    </div>
+    <div>
+        <button>Subir archivo</button>
+    </div>
+</form>  
+    <p class="derecha">
+        <a href="#content" title="Ir a inicio">
+            <img src="resources/img/arrow.png" alt="Flecha ir a inicio">
+        </a>
+    </p>
+      </div>
+      </main>
+      <footer>
+        <h2>&copy;VS1ASIR 2024</h2>
+      </footer>
+    </div>
+  </body>
+</html>

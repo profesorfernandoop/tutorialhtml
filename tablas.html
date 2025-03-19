@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas</title>
+    <link rel="stylesheet" href="resources/css/estiloflex.css" />
+    <link rel="stylesheet" href="resources/css/tablaminimo.css" />
+    <link rel="stylesheet" href="resources/css/stackoverflow-dark.min.css" />
+    <link rel="stylesheet" href="resources/css/tablahorario.css">
+    <script src="resources/js/highlight.min.js"></script>
+   <!--  Tambien lo podemos hacer asi <script>hljs.initHighlightingOnLoad(); </script>   --> 
+    <!-- Esta es la forma recomendada a partir de la version 10.0.6 Según nos dicen -->
+    <script>hljs.highlightAll()</script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <main>
+            <nav>
+                <ul class="menu">
+                    <li class="menuitem"><a href="index.html">Home</a></li>
+                    <li class="menuitem"><a href="texto.html">Elementos de texto</a></li>
+                    <li class="menuitem"><a href="enlaces.html">Hipervinculos</a></li>
+                    <li class="menuitem"><a href="tablas.html">Tablas</a></li>
+                    <li class="menuitem"><a href="multimedia.html">Multimedia</a></li>
+                    <li class="menuitem"><a href="formularios.html">Formularios</a></li>
+                    <li class="menuitem"><a href="formpago.html">Formulario de pago</a></li>
+                    <li class="menuitem"><a href="formhtml5.html">Form html5</a></li>
+                </ul>
+            </nav>
+            <div class="content">
+
+
+
+                    <h1 id="inicio" class="azulcobalto centrar">Conceptos básicos de las tablas HTML </h1>
+                    <h2 class="azulcobalto">¿Que es una tabla?</h2>
+                    <p>
+                        Una tabla es un conjunto estructurado de datos distribuidos en filas y columnas (datos
+                        tabulados).
+                        Permite buscar con rapidez y facilidad valores entre diferentes tipos de datos que indiquen
+                        algún
+                        tipo de conexión. Por ejemplo, en la siguiente tabla, que representa vuestro horario, la
+                        intersección entre la fila que representa la hora y la columna que reperesenta el día de la
+                        semana,
+                        nos informa de la clase que tienes en esa franja horaria.
+                    </p>
+                    
+                    <p class="centrar">
+                    <img src="resources/img/horario.png" width="90%" />
+                    </p>
+                    <p>
+                        En la construcción de una tabla HTML, es importante que ésta tenga una sólida estructura HTML, a
+                        la
+                        que habrá que añadir información de estilo mediante CSS para que la presentación sea más legible
+                        y
+                        atractiva. La presentación por defecto de una tabla HTML es muy pobre.
+                    </p>
+                    <h2 class="azulcobalto">¿Para que no se debe usar una tabla?</h2>
+                    <p>
+                        Las tablas HTML están pensadas para utilizarse con datos tabulados. Por desgracia, mucha gente
+                        utiliza las tablas HTML para confeccionar la estructura de las páginas web. Por ejemplo, una
+                        fila
+                        para contener la cabecera, una fila para contener las columnas de contenido, una fila para
+                        contener
+                        el pie de página, etc. Las razones por las que no se debe usar una tabla como elemento de diseño
+                        de
+                        la estructura d la página son:
+                    <ol>
+                        <li>
+                            <b>Las tablas de diseño reducen la accesibilidad para los usuarios con discapacidad
+                                visual:</b>
+                            Los lectores de pantalla que utilizan las personas con visibilidad reducida interpretan las
+                            etiquetas de una página HTML y leen su contenido para el usuario.
+                        </li>
+                        <li>
+                            <b>Las tablas generan estructuras incorrectas:</b> Los diseños de tabla suelen involucrar
+                            estructuras de marcado más complejas que las técnicas de diseño. Esto puede dificultar la
+                            escritura, el mantenimiento y la depuración del código.
+                        </li>
+                        <li>
+                            <b>Las tablas no tienen respuesta adaptativa automática:</b> Cuando usas contenedores de
+                            diseño
+                            adecuados (tales como <span class="etiqueta">&lt;header&gt; &lt;section&gt; &lt;article&gt;
+                                o
+                                &lt;div&gt;</span>), su ancho predeterminado es el 100% de su elemento padre. En cambio,
+                            las
+                            tablas se dimensionan de forma predeterminada según su contenido, por lo que se necesitan
+                            medidas adicionales para que el diseño de la tabla funcione de manera efectiva en todos los
+                            dispositivos.
+                        </li>
+                    </ol>
+                    </p>
+                    <h2 class="azulcobalto">Creación de una tabla</h2>
+                    <p>
+                        El siguiente código html permite crear una tabla básica:<br />
+                        <pre>
+<code class="language-html">
+    &lt;table&gt;
+     &lt;tr&gt;
+      &lt;td&gt;Compañía&lt;/td&gt;
+      &lt;td&gt;Contacto&lt;/td&gt;
+      &lt;td&gt;Germany&lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+      &lt;td&gt;Alfreds Futterkiste&lt;/td&gt;
+      &lt;td&gt;Maria Anders&lt;/td&gt;
+      &lt;td&gt;País&lt;/td&gt;
+     &lt;/tr&gt;  
+     &lt;tr&gt;
+      &lt;td&gt;Centro comercial Moctezuma&lt;/td&gt;
+      &lt;td&gt;Francisco Chang&lt;/td&gt;
+      &lt;td&gt;Méjico&lt;/td&gt;
+     &lt;/tr&gt;            
+    &lt;/table&gt;
+</code>
+                    </pre>
+                        <br />
+                        El contenido de la tabla viene delimitado por las etiquetas <span class="etiqueta">&lt;table&gt;
+                            y
+                            &lt;/table&gt;</span> <br />
+                        El contenedor más pequeño dentro de una tabla es la celda. El contenido de una celda viene
+                        delimitado por las etiquetas: <span class="etiqueta">&lt;td&gt; y &lt;/td&gt;</span> <br />
+                        Las celdas las agrupamos en filas. Cada fila viene deliitada por las etiquetas: <span
+                            class="etiqueta">&lt;tr&gt; y &lt;/tr&gt;</span> <br />
+
+                        Si no usamos nada de CSS el aspecto de nuestra tabla es muy pobre. De hecho no se parece a la
+                        imagen
+                        que todos tenemos de una tabla, en la que las celdas están delimitadas por un borde.
+                    </p>
+                    <p>
+                        Vamos a darle un poco de estilo para que tome un aspecto más acorde con la idea que todos
+                        tenemos de
+                        tabla. Descarga para ello la siguiente hoja de estilos: <br />
+                        <a
+                            href="https://github.com/mdn/learning-area/blob/master/html/tables/basic/minimal-table.css">minimal-table.css</a><br />
+                        Copiala en tu carpeta css, enlázala en esta página y observa el resultado.
+
+                    <table>
+                        <tr>
+                            <td>Compañia</td>
+                            <td>Contacto</td>
+                            <td>Pais</td>
+                        </tr>
+                        <tr>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                            <td>Germany</td>
+                        </tr>
+                        <tr>
+                            <td>Centro comercial Moctezuma</td>
+                            <td>Francisco Chang</td>
+                            <td>Mexico</td>
+                        </tr>
+                    </table>
+                    </p>
+                    <h2 class="azulcobalto">Añadir encabezados con elementos th</h2>
+                    <p>
+                        Abre el archivo <a
+                            href="https://github.com/mdn/learning-area/blob/master/html/tables/basic/dogs-table.html">dogs-table.html</a>
+                        y copia el código necesario para crear la tabla con la información de unos perros como la que
+                        muestra la siguente figura. <br />
+                        <img src="resources/img/tablaperros.png" width="750">
+                    </p>
+                    <p>
+                        Si sustituyes las etiquetas <span class="etiqueta">&lt;td&gt;</span> de la primera fila y
+                        columna
+                        por la etiqueta <span class="etiqueta">&lt;th&gt;</span>(table header) la tabla tomará este
+                        aspecto.
+                    <table>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <th scope="col">Knocky</th>
+                            <th scope="col">Flor</th>
+                            <th scope="col">Ella</th>
+                            <th scope="col">Juan</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Breed</th>
+                            <td>Jack Russell</td>
+                            <td>Poodle</td>
+                            <td>Streetdog</td>
+                            <td>Cocker Spaniel</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Age</th>
+                            <td>16</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Owner</th>
+                            <td>Mother-in-law</td>
+                            <td>Me</td>
+                            <td>Me</td>
+                            <td>Sister-in-law</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Eating Habits</th>
+                            <td>Eats everyone's leftovers</td>
+                            <td>Nibbles at food</td>
+                            <td>Hearty eater</td>
+                            <td>Will eat till he explodes</td>
+                        </tr>
+                    </table>
+                    </p>
+                    <p>
+                        El navegador por defecto muestra en negrita los encabezados de fila y columna y mediante la hoja
+                        de
+                        estilos se le ha dado un color de fondo que resalta sobre las otras celdas. <br />
+                        <code>
+                      <b>th {
+                        background-color: rgb(235,235,235);
+                      }</b>
+                    </code>
+                    </p>
+                    <h2 class="azulcobalto">Celdas que abarcan varias filas y columnas</h2>
+                    <p>
+                        A veces queremos que las celdas abarquen varias filas o columnas. Por ejemplo en vuestra tabla
+                        horario, la primera fila (en la que aparece el nombre del grupo) está formada por una celda que
+                        abarca todas las columnas de una fila. Puedes conseguir ese comportamiento definiendo esa celda
+                        así:
+<pre>
+    <code>
+        &lt;th colspan="6"&gt; VS1ASIR &lt;/th&gt;
+</code>
+</pre>                        
+
+                    </p>
+                    <p>
+                        Si quieres que una celda abarque varias filas como por ejemplo para visualizar que el lunes
+                        las dos primeras clases que tenéis son del módulo de Gestión de Base de Datos, usaríamos el
+                        atributo rowspan indicando el número de filas que queremos que ocupe la celda.
+<pre>
+    <code>
+      &lt;td rowspan="2"&gt;PAR&lt;br/&gt; Sánc. deRoNo, &lt;br/&gt;Pa &lt;br/&gt;B-302&lt;/td&gt;
+    </code>
+</pre>
+
+                    </p>
+                    <h3 class="azulcobalto">Ejercicio Práctico</h3>
+                    <p>
+                        Crea el horario del grupo VS1ASIR usando una tabla HTML en la que se haga uso del agrupamiento de filas y columnas para obtener el mismo aspecto que el de la figura del apartado "¿Qué es una
+                        tabla?". Para simplificar en este momento la parte los estilos a aplicar, usaremos la hoja de estilos por defecto que nos proporciona el tutorial de Mozilla Developer Network a través de GitHub. (https://github.com/mdn/learning-area/blob/master/html/tables/basic/minimal-table.css). El resultado debería ser como éste:
+                    </p>
+                    <!--  COMIENZO DE LA TABLA   -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="6">VS1ASIR</th>
+                            </tr>
+                            <tr>
+                                <th >/-\</th>
+                                <th scope="column">Lunes</th>
+                                <th scope="column">Martes</th>
+                                <th scope="column">Miercoles</th>
+                                <th scope="column">Jueves</th>
+                                <th  scope="column">Viernes</th>
+                            </tr>
+                        </thead>
+            
+                        <tbody>
+            
+                            <tr>
+                                <th scope="row">15:40<br/>16:35</th>
+                                <td rowspan="1">DASP<br />Sánc. Mo, Te<br />(B-302)</td>
+                                <td rowspan="2">PAR<br />Lote. Go, JuCa<br />(B-302)</td>
+                                <td rowspan="2">IPE<br />Sier. Or, AnMa<br />(B-302)</td>
+                                <td rowspan="2">FH<br />Gómez Mo, Ro<br />(B-302)</td>
+                                <td rowspan="1">FH<br />Gómez Mo, Ro<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16:35<br />17:30</th>
+                                <td rowspan="1">PAR<br />Lote. Go, JuCa<br />(B-302)</td>
+                                <td rowspan="2" >ISO<br />Dacu Ca, El<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17:30<br />18:25</th>
+                                <td rowspan="1" >ISO<br />Dacu Ca, El<br />(B-302)</td>
+                                <td>GBD<br />Tala. Be, Fe<br />(B-302)</td>
+                                <td rowspan="1">DASP<br />Sánc. Mo, Te<br />(B-302)</td>
+                                <td>INGLES<br />Alva Vu, Ge<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th colspan="6" class="titulocolumna">Recreo</th>
+                            </tr>
+                            <tr>
+                                <th scope="row">18:55<br />19:50</th>
+                                <td rowspan="1">ISO<br />Dacu Ca, El<br />(B-302)</td>
+                                <td>GBD<br />Tala. Be, Fe<br />(B-302)</td>
+                                <td rowspan="2" >ISO<br />Dacu Ca, El<br />(B-302)</td>
+                                <td>PIMA<br />Dacu Ca, El<br />(B-302)</td>
+                                <td rowspan="2">PAR<br />Lote. Go, JuCa<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">19:50<br />20:45</th>
+                                <td rowspan="2">LMSG<br />Ortiz Pe, Fe<br />(B-302)</td>
+                                <td rowspan="1">IPE<br />Sier. Or, AnMa<br />(B-302)</td>
+                                <td rowspan="2">GBD<br />Tala. Be, Fe<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20:45<br />21:40</th>
+                                <td>INGLES<br />Alva Vu, Ge<br />(B-302)</td>
+                                <td rowspan="1">LMSG<br />Ortiz Pe, Fe<br />(B-302)</td>
+                                <td>SASP<br />Lote. Go, JuCa<br />(B-302)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--  FIN DE LA TABLA   -->
+                    <!--  LA MISMA TABLA CON UN ESTILO MÁS DEPURADO-->
+                    <p>
+                        La misma tabla cambiando la hoja de estilos, la podríamos con una mejor presentación.
+                    </p>
+                    <div>
+                    <table class="tablahorario">
+                        <thead>
+                            <tr>
+                                <th colspan="6">VS1ASIR</th>
+                            </tr>
+                            <tr class="titulocolumna">
+                                <th >/-\</th>
+                                <th>Lunes</th>
+                                <th>Martes</th>
+                                <th>Miercoles</th>
+                                <th>Jueves</th>
+                                <th class="capitalletter">Viernes</th>
+                            </tr>
+                        </thead>
+            
+                        <tbody>
+            
+                            <tr>
+                                <th scope="row">15:40<br/>16:35</th>
+                                <td rowspan="1" class="DASP">DASP<br />Sánc. Mo, Te<br />(B-302)</td>
+                                <td rowspan="2" class="PAR">PAR<br />Lote. Go, JuCa<br />(B-302)</td>
+                                <td rowspan="2" class="IPE">IPE<br />Sier. Or, AnMa<br />(B-302)</td>
+                                <td rowspan="2" class="FH">FH<br />Gómez Mo, Ro<br />(B-302)</td>
+                                <td rowspan="1" class="FH">FH<br />Gómez Mo, Ro<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16:35<br />17:30</th>
+                                <td rowspan="1" class="PAR">PAR<br />Lote. Go, JuCa<br />(B-302)</td>
+                                <td rowspan="2" class="ISO" >ISO<br />Dacu Ca, El<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17:30<br />18:25</th>
+                                <td rowspan="1" class="ISO" >ISO<br />Dacu Ca, El<br />(B-302)</td>
+                                <td class="GBD">GBD<br />Tala. Be, Fe<br />(B-302)</td>
+                                <td rowspan="1" class="DASP">DASP<br />Sánc. Mo, Te<br />(B-302)</td>
+                                <td class="INGLES">INGLES<br />Alva Vu, Ge<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th colspan="6" class="titulocolumna">Recreo</th>
+                            </tr>
+                            <tr>
+                                <th scope="row">18:55<br />19:50</th>
+                                <td rowspan="1" class="ISO">ISO<br />Dacu Ca, El<br />(B-302)</td>
+                                <td class="GBD">GBD<br />Tala. Be, Fe<br />(B-302)</td>
+                                <td rowspan="2" class="ISO" >ISO<br />Dacu Ca, El<br />(B-302)</td>
+                                <td class="PIMA">PIMA<br />Dacu Ca, El<br />(B-302)</td>
+                                <td rowspan="2" class="PAR">PAR<br />Lote. Go, JuCa<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">19:50<br />20:45</th>
+                                <td rowspan="2" class="LMSG">LMSG<br />Ortiz Pe, Fe<br />(B-302)</td>
+                                <td rowspan="1" class="IPE">IPE<br />Sier. Or, AnMa<br />(B-302)</td>
+                                <td rowspan="2" class="GBD">GBD<br />Tala. Be, Fe<br />(B-302)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20:45<br />21:40</th>
+                                <td class="INGLES">INGLES<br />Alva Vu, Ge<br />(B-302)</td>
+                                <td rowspan="1" class="LMSG">LMSG<br />Ortiz Pe, Fe<br />(B-302)</td>
+                                <td class="SASP">SASP<br />Lote. Go, JuCa<br />(B-302)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                    <!--  FIN DE LA TABLA   -->     
+
+                    <h2 class="azulcobalto">Conceptos avanzados y accesibilidad</h2>
+                    <p>
+                        En el segundo artículo de este módulo, analizamos algunas características más avanzadas de las
+                        tablas HTML, como los subtítulos/resúmenes, la agrupación de filas en las secciones del
+                        encabezado, el cuerpo y el pie de página; y también analizamos la accesibilidad de las tablas
+                        para usuarios con discapacidad visual.
+                    </p>
+                    <h3 class="azulcobalto">Añadir un subtítulo a la tabla</h3>   
+                    <p>
+                        Puedes dar un título a tu tabla colocándolo dentro de un elemento               
+                        <span class="etiqueta">&lt;caption&gt;</span> y anidándolo dentro del elemento  <span class="etiqueta">&lt;table&gt; </span>. Debes ponerlo justo debajo de la etiqueta de apertura  <span class="etiqueta">&lt;table&gt; </span>
+                    </p> 
+                    <h3 class="azulcobalto">Añadir estructura a una tabla con las etiquetas  <span class="etiquetatitulo">&lt;thead&gt; </span>  <span class="etiquetatitulo">&lt;tbody&gt; </span>  <span class="etiquetatitulo">&lt;tfoot&gt; </span> </h3>     
+                    <p>
+                        La etiqueta <span class="etiqueta">&lt;thead&gt; </span> nos permite marcar el encabezado de una tabla, <span class="etiqueta">&lt;tfoot&gt;</span> marca el pie de la tabla y <span class="etiqueta">&lt;tbody</tbody>&gt;</span> delimita el cuerpo de la misma
+                    </p>     
+                    <p>
+                        Estos elementos no mejoran las características de accesibilidad de la tabla para los usuarios de lectores de pantalla ni su aspecto visual en sí. Sin embargo, son muy útiles para la aplicación de estilo y la compaginación, porque actúan como soportes útiles para añadir CSS a tu tabla.
+                    </p>    
+                    <p>
+                        Para usarlos ten en cuenta lo siguiente:
+                        <ul>
+                            <li>
+                                El elemento<span class="etiqueta">&lt;thead&gt; </span> debe delimitar el encabezado de la tabla; esta suele ser la primera fila, que contiene los encabezados de las columnas, pero no siempre es así. Si utilizas los elementos <span class="etiqueta">&lt;col&gt; </span>/<span class="etiqueta">&lt;colgroup&gt; </span>, el encabezado de la tabla debe estar justo debajo.
+                            </li>
+                            <li>
+                                El elemento <span class="etiqueta">&lt;tfoot&gt;</span> delimita la parte de la tabla correspondiente al pie de página; esta podría ser una fila final con elementos en las filas anteriores. Puedes incluir el pie de página de la tabla justo en la parte inferior de la tabla, donde esperarías que esté, o justo debajo del encabezado (y el navegador lo mostrará aun así en la parte inferior de la tabla).
+                            </li>
+                            <li>
+                                El elemento <span class="etiqueta">&lt;tbody&gt;</span>> delimita las otras partes del contenido de la tabla que no están en el encabezado o en el pie de página de la tabla. Aparecerá debajo del encabezado de la tabla o, a veces, en el pie de página, según cómo hayas decidido estructurarlo.
+                            </li>
+                        </ul>
+                    </p>  
+                    <p>
+                        Ejercicio práctico: Crea una tabla como la que se muestra en la siguiente figura, delimitando el encabezado, el cuerpo y el pie de la misma.<br/>
+                        <img src="resources/img/tablagastos.png">
+                    </p>                     
+            </div>
+            <div class="cb"></div>
+        </main>
+        <footer>
+            <h2>&copy;VS1ASIR 2024</h2>
+        </footer>
+    </div>
+<!---
+    <article>
+        <h4>Quien sale ahora en negrita</h4>
+        <p>Saludos <span>Hello</span> <span>Bye</span></p>
+        <p>Saludos <span>Hello</span> <span>Bye</span></p>
+    </article>
+
+
+    <div class="notebox">
+        This is an informational note.
+    </div>
+    <br/>
+    <div class="notebox warning">
+        This note shows a warning.
+    </div>
+
+    <br/>
+    <div class="notebox danger">
+        This note shows danger!
+    </div>
+    <br/>
+    <div class="danger">
+        This won't get styled — it also needs to have the notebox class
+    </div>
+
+    ->
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es_ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/estiloflex.css"/>
+    <link rel="stylesheet" href="resources/css/formpago.css">
+    <script src="resources/js/validarform.js"></script>
+    <title>Formulario de Pago</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <main>
+          <nav>
+            <ul class="menu">
+              <li class="menuitem"><a href="index.html">Home</a></li>
+              <li class="menuitem"><a href="texto.html">Elementos de texto</a></li>
+              <li class="menuitem"><a href="enlaces.html">Hipervinculos</a></li>
+              <li class="menuitem"><a href="tablas.html">Tablas</a></li>
+              <li class="menuitem"><a href="multimedia.html">Multimedia</a></li>
+              <li class="menuitem"><a href="formularios.html">Formularios</a></li>
+              <li class="menuitem"><a href="formpago.html">Formulario de pago</a></li>
+              <li class="menuitem"><a href="formhtml5.html">Form html5</a></li>
+          </ul>
+          </nav>
+          <div class="content">
+              <br/>
+              <br/>
+              <form action="#" method="POST" onsubmit="return confirmar_envio()">
+                  <h1>Formulario de pago</h1>
+                  <p>Los campos obligatorios van seguidos de
+                     <strong> <abbr title = "Obligatorio" aria-label="Obligatorio"> * </abbr> </strong>.</p>
+                  <section>
+                      <h2>Información de contacto</h2>
+                      <fieldset>
+                        <legend>Título</legend>
+                        <ul>
+                            <li>
+                              <label for="title_1">
+                                <input type="radio" id="title_1" name="title" value="K" >
+                                Rey
+                              </label>
+                            </li>
+                            <li>
+                              <label for="title_2">
+                                <input type="radio" id="title_2" name="title" value="Q">
+                                Reina
+                              </label>
+                            </li>
+                            <li>
+                              <label for="title_3">
+                                <input type="radio" id="title_3" name="title" value="J">
+                                Bufón
+                              </label>
+                            </li>
+                        </ul>
+                      </fieldset>
+                      <p>
+                        <label for="name">
+                          <span>Nombre:</span>
+                          <strong><abbr title="obligatorio">*</abbr></strong>
+                        </label>
+                        <input type="text" id="name" name="username" 
+                        size="8" maxlength="20" required>
+                      </p>
+                      <p>
+                        <label for="mail">
+                          <span>Correo electrónico:</span>
+                          <strong><abbr title="obligatorio">*</abbr></strong>
+                        </label>
+                        <input type="email" id="mail" name="usermail" required placeholder="Introduzca dirección de correo">
+                      </p>
+                      <p>
+                        <label for="pwd">
+                          <span>Contraseña:</span>
+                          <strong><abbr title="obligatorio">*</abbr></strong>
+                        </label>
+                        <input type="password" id="pwd" name="password" required="true">
+                      </p>
+                  </section>
+                  <section>
+                      <h2>Información de pago</h2>
+                      <p>
+                        <label for="card">
+                          <span>Tipo de tarjeta:</span>
+                        </label>
+                        <select id="card" name="usercard">
+                          <option value="visa">Visa</option>
+                          <option value="mc">Mastercard</option>
+                          <option value="amex">American Express</option>
+                        </select>
+                      </p>
+                      <p>
+                        <label for="number">
+                          <span>Número de tarjeta:</span>
+                          <strong><abbr title="obligatorio">*</abbr></strong>
+                        </label>
+                      
+                        <input type="tel" 
+                                id="cardnumber" 
+                                name="cardnumber" 
+                                pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
+                              required>
+                        <span class="letrapequeña">formato valido: 9999-9999-9999-9999</span>
+                      </p>
+                      <p>
+                          <label for="date">
+                              <span>Fecha de caducidad</span>
+                              <strong><abbr title="obligatorio">*</abbr></strong>
+                            </label>
+                            <input type="date" id="date" name="expiration" required="true">
+                      </p>
+                  </section>    
+                  <p> <button type="submit">Validar el pago</button> </p>            
+              </form>
+
+              <form>
+
+                <fieldset>
+                  <legend>Choose all the vegetables you like to eat</legend>
+                  <ul>
+                    <li>
+                      <label for="carrots">Carrots</label>
+                      <input
+                        type="checkbox"
+                        id="carrots"
+                        name="vegetable"
+                        value="carrots"
+                        checked />
+                    </li>
+                    <li>
+                      <label for="peas">Peas</label>
+                      <input type="checkbox" id="peas" name="vegetable" value="peas" />
+                    </li>
+                    <li>
+                      <label for="cabbage">Cabbage</label>
+                      <input type="checkbox" id="cabbage" name="vegetable" value="cabbage" />
+                    </li>
+                  </ul>
+                </fieldset>
+                
+              </form>
+              <br/>
+              <br/>
+          </div>
+        </main>
+        <footer>
+            <h2>&copy;VS1ASIR 2024</h2>
+        </footer>
+    </main>   
+   
+</body>
+</html>

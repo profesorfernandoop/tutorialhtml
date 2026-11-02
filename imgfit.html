@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.wrapper > * {
+  margin: 20px;
+}
+
+.box {
+  border: 5px solid darkblue;
+  width: 200px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+.cover {
+  object-fit: cover;
+}
+
+.contain {
+  object-fit: contain;
+}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="box">
+    <img
+      alt="star"
+      src="https://mdn.github.io/shared-assets/images/examples/big-star.png" 
+      >
+  </div>
+  <div class="box">
+    <img
+      alt="balloons"
+      src="https://mdn.github.io/shared-assets/images/examples/balloons.jpg" 
+      class="contain">
+  </div>
+</div>
+</body>
+</html>

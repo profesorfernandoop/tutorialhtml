@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de pre y code</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+      width: 800px;
+      margin: 0 auto;
+      display:flex;
+    }
+
+    code {
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+    }
+    section:first-child{
+      flex:0 0 400px;
+      margin-right: 20px;
+    }
+    section{
+      flex:1;
+      display:flex;
+      min-width:0;;
+    }
+    pre {
+      flex:1;
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto; /* Permite scroll horizontal si el código es largo */
+      min-width: 0; 
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h1>Este es un ejemplo de pagina html que se sale</h1>
+  </section>
+
+  <section>
+                  <pre>
+            <code class="html">
+    &lt;dl&gt;
+        &lt;dt&gt;soliloquio&lt;/dt&gt;
+        &lt;dd&gt;En las obras dramáticas, corresponde a cuando un personaje
+        se habla a sí mismo &lt;/dd&gt;
+        &lt;dt&gt;monólogo &lt;/dt&gt;
+        &lt;dd&gt; Cuando un personaje habla de sus pensamientos en voz alta y habla y habla y habla &lt;/dd&gt;
+    &lt;/dl&gt;
+            </code>
+        </pre>
+
+           </section>
+</body>
+</html>

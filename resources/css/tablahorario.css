@@ -1,0 +1,133 @@
+:root {
+    --DASP:#ffc8c8;
+    --PIMA:#ffff64;
+    --SASP:#8080c0;
+    --PAR: #b4b464;
+    --ISO: #80ffff;
+    --FH: #28c8c8;
+    --INGLES: #ff8080;
+    --LMSG:#d2d2ff;
+    --IPE:#96dc96;
+    --GBD:#f0f0c8;
+    --fondofilatitulo:rgb(235, 235, 235);
+    --fondocabecerafila:beige;
+  }
+
+
+
+table.tablahorario{
+    border: 2px solid grey ;
+    border-collapse: collapse;
+    text-align:center;
+    line-height: 1.2;
+    width:100%;
+}
+table.tablahorario td,.tablahorario th{
+    border: 1px solid grey;
+}
+
+table.tablahorario .DASP{
+    background-color:var(--DASP);
+}
+table.tablahorario .PIMA{
+    background-color:var(--PIMA);
+}
+table.tablahorario .SASP{
+    background-color:var(--SASP);
+}
+
+table.tablahorario .PAR{
+    background-color:var(--PAR);
+}
+
+
+table.tablahorario .GBD{
+    background-color:var(--GBD);
+}
+
+table.tablahorario .LMSG{
+    background-color:var(--LMSG);
+}
+table.tablahorario .INGLES{
+    background-color:var(--INGLES);
+}
+table.tablahorario .ISO{
+    background-color: var(--ISO);
+}
+table.tablahorario .IPE{
+    background-color: var(--IPE);
+}
+table.tablahorario .FH{
+    background-color:var(--FH);
+}
+
+
+table.tablahorario thead tr:nth-of-type(1) > th{
+    font-size:2em;
+    color:rgb(0, 128, 128);
+    background-color: beige;
+}
+/* solucionar primera letra grupo salga de un tamaño mayor
+ * anidamos seudoelemento dentro de seudoclase
+ */
+
+ table.tablahorario tr.titulocolumna >td{
+    background-color:var(--fondofilatitulo);
+}
+ table.tablahorario thead tr:nth-of-type(2){
+   color:rgb(0, 128, 128);
+   font-size:1.25em;
+ }
+
+table.tablahorario thead 
+              tr:nth-of-type(2) 
+              th:nth-of-type(n+1)::first-letter{
+    font-size:1.5em;
+}
+
+table.tablahorario tbody tr:nth-of-type(4){
+    font-size:1.25em;
+    color:rgb(0, 128, 128);;
+}
+table.tablahorario tbody tr:nth-of-type(4) th::first-letter{
+    font-size:1.5em;
+    color:rgb(0, 128, 128);
+}
+
+
+table.tablahorario tbody th[scope="row"]{
+    background-color: var(--fondocabecerafila);
+}
+
+.corporativo{
+    color:hsl(0,100,50);
+    color:rgb(0,120,0);
+    color:#008000;
+    color:hsl(120, 100, 20);
+}
+/*
+th.capitalletter::first-letter{
+    font-size:1.5em;
+}*/
+
+
+article *:first-child {
+    font-weight: bold;
+  }
+  
+
+
+  .notebox {
+    border: 4px solid #666;
+    padding: .5em;
+  }
+  
+  .notebox.warning {
+    border-color: orange;
+    font-weight: bold;
+  }
+  
+  .notebox.danger {
+    border-color: red;
+    font-weight: bold;
+  }

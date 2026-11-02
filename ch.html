@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de pre y code</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto; /* Permite scroll horizontal si el código es largo */
+    }
+
+    code {
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplo de código usando &lt;pre&gt; y &lt;code&gt;</h1>
+
+  <p>Texto normal para comparar:</p>
+  <p>
+    for i in range(5):
+        print(i)
+  </p>
+
+  <p>Código preformateado:</p>
+  <pre><code>
+def saludar(nombre):
+    print(f"Hola, {nombre}!")
+
+saludar("Mundo")
+  </code></pre>
+
+  <p>Observa cómo los espacios y saltos de línea se mantienen exactamente igual dentro de &lt;pre&gt;.</p>
+</body>
+</html>
